@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            margin: 0;
+            background-color: #ffffff;
+            height: auto;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            background-color: rgb(0, 0, 0);
+        }
+
+        .navbar ul li {
+            list-style: none;
+            display: inline-block;
+            margin: 0 10px;
+            position: relative;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: #ffffff;
+            text-transform: uppercase;
+            border-radius: 10px;
+        }
+
+        .navbar ul li::after {
+            content: '';
+            height: 3px;
+            width: 0;
+            background: #009688;
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            transition: 0.5s;
+        }
+
+        .navbar ul li:hover::after {
+            width: 100%;
+        }
+
+        .container {
+            text-align: center;
+            color: #000000;
+        }
+
+        .video-container {
+            text-align: center;
+            margin-top: 50px; /* Adjust this value based on your design */
+        }
+
+        video {
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .controls button {
+            background-color: transparent;
+            border: none;
+            color: #000000;
+            font-size: 1.2em;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+
+        .progress-bar {
+            width: 50%;
+            height: 10px;
+            background-color: #444;
+            position: relative;
+            margin-top: 10px;
+        }
+
+        .progress-bar div {
+            height: 100%;
+            background-color: #009688;
+            width: 0;
+            transition: width 0.1s linear;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <h1 style="color: white;">ANG BANLIK</h1>
+        <ul>
+            <li><a href="index.html"><img src="homeicon.png" style="height: 100px; width: 100px;"></a></li>
+            <li><a href="pabula.html"><img src="pabula.icon.png" style="height: 100px; width: 100px;"></a></li>
+            <li><a href="video.html"><img src="videoicon.png" style="height: 100px; width: 100px;"></a></li>
+            <li><a href="may akda.html"><img src="mayakdaicon.png" style="height: 100px; width: 100px;"></a></li>
+        </ul>
+    </div>
+
+    <div class="container">
+    </div>
+
+    <div class="video-container">
+        <video id="myVideo" controls>
+            <source src="#" type="video/mp4">
+        </video>
+        <div class="controls">
+            <button id="playPauseBtn">&#9658;</button>
+            <button id="volumeBtn">&#128266;</button>
+            <div class="progress-bar">
+                <div id="progress"></div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <script>
+          var video = document.getElementById("myVideo");
+        var playPauseBtn = document.getElementById("playPauseBtn");
+        var volumeBtn = document.getElementById("volumeBtn");
+        var progress = document.getElementById("progress");
+
+        playPauseBtn.addEventListener("click", function () {
+            if (video.paused || video.ended) {
+                video.play();
+                playPauseBtn.innerHTML = "&#10074;&#10074;"; // Pause symbol
+            } else {
+                video.pause();
+                playPauseBtn.innerHTML = "&#9658;"; // Play symbol
+            }
+        });
+
+        volumeBtn.addEventListener("click", function () {
+            if (video.muted) {
+                video.muted = false;
+                volumeBtn.innerHTML = "&#128266;";
+            } else {
+                video.muted = true;
+                volumeBtn.innerHTML = "&#128263;";
+            }
+        });
+
+        video.addEventListener("timeupdate", function () {
+            var value = (video.currentTime / video.duration) * 100;
+            progress.style.width = value + "%";
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <style>
+    body {
+      margin: 0;
+      background-color: #000000;
+      height: auto;
+    }
+    .navbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+        background-color: transparent
+      }
+      .navbar ul li {
+        list-style: none;
+        display: inline-block;
+        margin: 0 10px;
+        position: relative;
+      }
+  
+      .navbar ul li a {
+        text-decoration: none;
+        color: #fff;
+        text-transform: uppercase;
+        border-radius: 10px;
+      }
+  
+      .navbar ul li::after {
+        content: '';
+        height: 3px;
+        width: 0;
+        background: #009688;
+        position: absolute;
+        left: 0;
+        bottom: -10px;
+        transition: 0.5s;
+      }
+  
+      .navbar ul li:hover::after {
+        width: 100%;
+      }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <h1 style="color: white;">ANG BANLIK</h1>
+        <ul>
+          <li><a href="index.html"><img src="homeicon.png" style="height: 100px; width: 100px;"></a></li>
+          <li><a href="pabula.html"><img src="pabula.icon.png" style="height: 100px; width: 100px;"></a></li>
+          <li><a href="video.html"><img src="videoicon.png" style="height: 100px; width: 100px;"></a></li>
+          <li><a href="may akda.html"><img src="mayakdaicon.png" style="height: 100px; width: 100px;"></a></li>
+        </ul>
+      </div>
+  <img src="May-akda.png" alt="MAY AKDA">
+</body>
+</html>
